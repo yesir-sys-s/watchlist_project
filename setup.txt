@@ -1,0 +1,64 @@
+Movie Watchlist Setup Instructions
+================================
+
+1. Virtual Environment Setup
+--------------------------
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+2. Install Dependencies
+---------------------
+pip install -r requirements.txt
+
+3. Database Setup
+---------------
+python manage.py migrate
+
+4. Media Setup
+------------
+# Create required directories
+mkdir media
+mkdir media/movie_posters
+
+5. Create Admin User
+------------------
+python manage.py createsuperuser
+# Follow the prompts to create your admin account
+
+6. Run Development Server
+----------------------
+python manage.py runserver
+
+7. Access Points
+--------------
+- Main site: http://127.0.0.1:8000/
+- Admin interface: http://127.0.0.1:8000/admin
+
+8. Available URLs
+--------------
+- Home: /
+- Movie list: /movies/
+- Add movie: /movie/new/
+- Movie detail: /movie/<id>/
+- Edit movie: /movie/<id>/update/
+- Delete movie: /movie/<id>/delete/
+
+9. Project Structure
+-----------------
+media/
+  └── movie_posters/  # Stores uploaded movie posters
+watchlist/
+  ├── static/
+  │   └── watchlist/
+  │       ├── css/    # CSS files
+  │       └── js/     # JavaScript files
+  └── templates/
+      └── watchlist/  # HTML templates
+
+Note: Make sure you're in the project root directory when running these commands.

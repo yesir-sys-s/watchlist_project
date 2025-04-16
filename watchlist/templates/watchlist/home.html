@@ -1,0 +1,16 @@
+{% extends 'watchlist/base.html' %}
+
+{% block content %}
+<div class="home-hero text-center">
+    <h1 class="display-4 mb-4">Welcome to Movie Watchlist</h1>
+    <p class="lead mb-5">Keep track of movies you want to watch and ones you've already seen.</p>
+    <div class="home-actions">
+        <a href="{% url 'movie-list' %}" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-list me-2"></i>View Watchlist
+        </a>
+        <a href="{% url 'movie-create' %}" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-plus me-2"></i>Add Movie
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'watchlist/base.html' %}
+
+{% block content %}
+    <h1>{{ movie.title }}</h1>
+    <p>{{ movie.description }}</p>
+    <p>Status: {% if movie.watched %}Watched{% else %}Not Watched{% endif %}</p>
+    <p>Added: {{ movie.date_added }}</p>
+    
+    <a href="{% url 'movie-update' movie.pk %}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'movie-delete' movie.pk %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'movie-list' %}" class="btn btn-outline-secondary">Back to List</a>
+{% endblock %}
