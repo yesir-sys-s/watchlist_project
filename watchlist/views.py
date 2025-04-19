@@ -1,5 +1,7 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, redirect
+from django.views import View
 from .models import Movie
 
 class HomeView(TemplateView):
@@ -30,3 +32,10 @@ class MovieDeleteView(DeleteView):
     model = Movie
     template_name = 'watchlist/movie_confirm_delete.html'
     success_url = reverse_lazy('movie-list')
+
+class ToggleWatchedView(View):
+    def post(self, request, pk):
+        movie = get_object_or_404(Movie, pk=pk)
+        movie.watched = not movie.watched
+        movie.save()
+        return redirect('movie-list')

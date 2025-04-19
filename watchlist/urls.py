@@ -5,7 +5,8 @@ from .views import (
     MovieCreateView,
     MovieUpdateView,
     MovieDeleteView,
-    HomeView
+    HomeView,
+    ToggleWatchedView
 )
 from django.conf import settings
 from django.conf.urls.static import static
@@ -17,6 +18,7 @@ urlpatterns = [
     path('movie/new/', MovieCreateView.as_view(), name='movie-create'),
     path('movie/<int:pk>/update/', MovieUpdateView.as_view(), name='movie-update'),
     path('movie/<int:pk>/delete/', MovieDeleteView.as_view(), name='movie-delete'),
+    path('movie/<int:pk>/toggle/', ToggleWatchedView.as_view(), name='movie-toggle'),
 ]
 
 if settings.DEBUG:
